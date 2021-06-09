@@ -24,7 +24,7 @@ class ProductViewModel @Inject constructor(
     }
 
     private fun getProducts() {
-        viewModelScope.launch(Dispatchers.Main) {
+        viewModelScope.launch(Dispatchers.IO) {
             _productList.postValue(Result.loading(data = null))
             _productList.postValue(repository.getProducts())
         }
